@@ -18,21 +18,21 @@ trait UserHelpers
     }
 
     /**
-     * Determine whether the user type is supervisor.
+     * Determine whether the user type is nurse.
      *
      * @return bool
      */
-    public function isSupervisor()
+    public function isNurse()
     {
         return $this->type == User::SUPERVISOR_TYPE;
     }
 
     /**
-     * Determine whether the user type is customer.
+     * Determine whether the user type is doctor.
      *
      * @return bool
      */
-    public function isCustomer()
+    public function isDoctor()
     {
         return $this->type == User::CUSTOMER_TYPE;
     }
@@ -61,7 +61,7 @@ trait UserHelpers
      */
     public function canAccessDashboard()
     {
-        return $this->isAdmin() || $this->isSupervisor();
+        return $this->isAdmin() || $this->isNurse();
     }
 
     /**

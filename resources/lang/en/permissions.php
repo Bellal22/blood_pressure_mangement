@@ -2,8 +2,8 @@
 
 return [
     'plural' => 'Permissions',
-    'manage.supervisors' => 'Manage Supervisors',
-    'manage.customers' => 'Manage Customers',
+    'manage.nurses' => 'Manage Nurses',
+    'manage.doctors' => 'Manage Doctors',
     'manage.feedback' => 'Manage Feedback',
     'manage.settings' => 'Manage Settings',
 ];

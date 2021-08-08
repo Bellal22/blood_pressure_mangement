@@ -3,18 +3,18 @@
 namespace Tests\Feature\Dashboard;
 
 use Tests\TestCase;
-use App\Models\Customer;
+use App\Models\Doctor;
 
-class CustomerTest extends TestCase
+class DoctorTest extends TestCase
 {
     /** @test */
-    public function it_can_display_list_of_customers()
+    public function it_can_display_list_of_doctors()
     {
         $this->actingAsAdmin();
 
-        Customer::factory()->create(['name' => 'Ahmed']);
+        Doctor::factory()->create(['name' => 'Ahmed']);
 
-        $response = $this->get(route('dashboard.customers.index'));
+        $response = $this->get(route('dashboard.doctors.index'));
 
         $response->assertSuccessful();
 
@@ -22,13 +22,13 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function it_can_display_customer_details()
+    public function it_can_display_doctor_details()
     {
         $this->actingAsAdmin();
 
-        $customer = Customer::factory()->create(['name' => 'Ahmed']);
+        $doctor = Doctor::factory()->create(['name' => 'Ahmed']);
 
-        $response = $this->get(route('dashboard.customers.show', $customer));
+        $response = $this->get(route('dashboard.doctors.show', $doctor));
 
         $response->assertSuccessful();
 
@@ -36,28 +36,28 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function it_can_display_customer_create_form()
+    public function it_can_display_doctor_create_form()
     {
         $this->actingAsAdmin();
 
-        $response = $this->get(route('dashboard.customers.create'));
+        $response = $this->get(route('dashboard.doctors.create'));
 
         $response->assertSuccessful();
 
-        $response->assertSee(trans('customers.actions.create'));
+        $response->assertSee(trans('doctors.actions.create'));
     }
 
     /** @test */
-    public function it_can_create_customers()
+    public function it_can_create_doctors()
     {
         $this->actingAsAdmin();
 
-        $customersCount = Customer::count();
+        $doctorsCount = Doctor::count();
 
         $response = $this->postJson(
-            route('dashboard.customers.store'),
-            Customer::factory()->raw([
-                'name' => 'Customer',
+            route('dashboard.doctors.store'),
+            Doctor::factory()->raw([
+                'name' => 'Doctor',
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ])
@@ -65,34 +65,34 @@ class CustomerTest extends TestCase
 
         $response->assertRedirect();
 
-        $this->assertEquals(Customer::count(), $customersCount + 1);
+        $this->assertEquals(Doctor::count(), $doctorsCount + 1);
     }
 
     /** @test */
-    public function it_can_display_customer_edit_form()
+    public function it_can_display_doctor_edit_form()
     {
         $this->actingAsAdmin();
 
-        $customer = Customer::factory()->create();
+        $doctor = Doctor::factory()->create();
 
-        $response = $this->get(route('dashboard.customers.edit', $customer));
+        $response = $this->get(route('dashboard.doctors.edit', $doctor));
 
         $response->assertSuccessful();
 
-        $response->assertSee(trans('customers.actions.edit'));
+        $response->assertSee(trans('doctors.actions.edit'));
     }
 
     /** @test */
-    public function it_can_update_customers()
+    public function it_can_update_doctors()
     {
         $this->actingAsAdmin();
 
-        $customer = Customer::factory()->create();
+        $doctor = Doctor::factory()->create();
 
         $response = $this->put(
-            route('dashboard.customers.update', $customer),
-            Customer::factory()->raw([
-                'name' => 'Customer',
+            route('dashboard.doctors.update', $doctor),
+            Doctor::factory()->raw([
+                'name' => 'Doctor',
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ])
@@ -100,37 +100,37 @@ class CustomerTest extends TestCase
 
         $response->assertRedirect();
 
-        $customer->refresh();
+        $doctor->refresh();
 
-        $this->assertEquals($customer->name, 'Customer');
+        $this->assertEquals($doctor->name, 'Doctor');
     }
 
     /** @test */
-    public function it_can_delete_customer()
+    public function it_can_delete_doctor()
     {
         $this->actingAsAdmin();
 
-        $customer = Customer::factory()->create();
+        $doctor = Doctor::factory()->create();
 
-        $customersCount = Customer::count();
+        $doctorsCount = Doctor::count();
 
-        $response = $this->delete(route('dashboard.customers.destroy', $customer));
+        $response = $this->delete(route('dashboard.doctors.destroy', $doctor));
         $response->assertRedirect();
 
-        $this->assertEquals(Customer::count(), $customersCount - 1);
+        $this->assertEquals(Doctor::count(), $doctorsCount - 1);
     }
     /** @test */
-    public function it_can_display_trashed_customers()
+    public function it_can_display_trashed_doctors()
     {
-        if (! $this->useSoftDeletes($model = Customer::class)) {
+        if (! $this->useSoftDeletes($model = Doctor::class)) {
             $this->markTestSkipped("The '$model' doesn't use soft deletes trait.");
         }
 
-        Customer::factory()->create(['deleted_at' => now(), 'name' => 'Ahmed']);
+        Doctor::factory()->create(['deleted_at' => now(), 'name' => 'Ahmed']);
 
         $this->actingAsAdmin();
 
-        $response = $this->get(route('dashboard.customers.trashed'));
+        $response = $this->get(route('dashboard.doctors.trashed'));
 
         $response->assertSuccessful();
 
@@ -138,70 +138,70 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function it_can_display_trashed_customer_details()
+    public function it_can_display_trashed_doctor_details()
     {
-        if (! $this->useSoftDeletes($model = Customer::class)) {
+        if (! $this->useSoftDeletes($model = Doctor::class)) {
             $this->markTestSkipped("The '$model' doesn't use soft deletes trait.");
         }
 
-        $customer = Customer::factory()->create(['deleted_at' => now(), 'name' => 'Ahmed']);
+        $doctor = Doctor::factory()->create(['deleted_at' => now(), 'name' => 'Ahmed']);
 
         $this->actingAsAdmin();
 
-        $response = $this->get(route('dashboard.customers.trashed.show', $customer));
+        $response = $this->get(route('dashboard.doctors.trashed.show', $doctor));
 
         $response->assertSuccessful();
 
         $response->assertSee('Ahmed');
     }
     /** @test */
-    public function it_can_restore_deleted_customer()
+    public function it_can_restore_deleted_doctor()
     {
-        if (! $this->useSoftDeletes($model = Customer::class)) {
+        if (! $this->useSoftDeletes($model = Doctor::class)) {
             $this->markTestSkipped("The '$model' doesn't use soft deletes trait.");
         }
 
-        $customer = Customer::factory()->create(['deleted_at' => now()]);
+        $doctor = Doctor::factory()->create(['deleted_at' => now()]);
 
         $this->actingAsAdmin();
 
-        $response = $this->post(route('dashboard.customers.restore', $customer));
+        $response = $this->post(route('dashboard.doctors.restore', $doctor));
 
         $response->assertRedirect();
 
-        $this->assertNull($customer->refresh()->deleted_at);
+        $this->assertNull($doctor->refresh()->deleted_at);
     }
 
     /** @test */
-    public function it_can_force_delete_customer()
+    public function it_can_force_delete_doctor()
     {
-        if (! $this->useSoftDeletes($model = Customer::class)) {
+        if (! $this->useSoftDeletes($model = Doctor::class)) {
             $this->markTestSkipped("The '$model' doesn't use soft deletes trait.");
         }
 
-        $customer = Customer::factory()->create(['deleted_at' => now()]);
+        $doctor = Doctor::factory()->create(['deleted_at' => now()]);
 
-        $customerCount = Customer::withTrashed()->count();
+        $doctorCount = Doctor::withTrashed()->count();
 
         $this->actingAsAdmin();
 
-        $response = $this->delete(route('dashboard.customers.forceDelete', $customer));
+        $response = $this->delete(route('dashboard.doctors.forceDelete', $doctor));
 
         $response->assertRedirect();
 
-        $this->assertEquals(Customer::withoutTrashed()->count(), $customerCount - 1);
+        $this->assertEquals(Doctor::withoutTrashed()->count(), $doctorCount - 1);
     }
 
     /** @test */
-    public function it_can_filter_customers_by_name()
+    public function it_can_filter_doctors_by_name()
     {
         $this->actingAsAdmin();
 
-        Customer::factory()->create(['name' => 'Ahmed']);
+        Doctor::factory()->create(['name' => 'Ahmed']);
 
-        Customer::factory()->create(['name' => 'Mohamed']);
+        Doctor::factory()->create(['name' => 'Mohamed']);
 
-        $this->get(route('dashboard.customers.index', [
+        $this->get(route('dashboard.doctors.index', [
             'name' => 'ahmed',
         ]))
             ->assertSuccessful()
@@ -210,21 +210,21 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function it_can_filter_customers_by_email()
+    public function it_can_filter_doctors_by_email()
     {
         $this->actingAsAdmin();
 
-        Customer::factory()->create([
+        Doctor::factory()->create([
             'name' => 'FooBar1',
             'email' => 'user1@demo.com',
         ]);
 
-        Customer::factory()->create([
+        Doctor::factory()->create([
             'name' => 'FooBar2',
             'email' => 'user2@demo.com',
         ]);
 
-        $this->get(route('dashboard.customers.index', [
+        $this->get(route('dashboard.doctors.index', [
             'email' => 'user1@',
         ]))
             ->assertSuccessful()
@@ -233,21 +233,21 @@ class CustomerTest extends TestCase
     }
 
     /** @test */
-    public function it_can_filter_customers_by_phone()
+    public function it_can_filter_doctors_by_phone()
     {
         $this->actingAsAdmin();
 
-        Customer::factory()->create([
+        Doctor::factory()->create([
             'name' => 'FooBar1',
             'phone' => '123',
         ]);
 
-        Customer::factory()->create([
+        Doctor::factory()->create([
             'name' => 'FooBar2',
             'email' => '456',
         ]);
 
-        $this->get(route('dashboard.customers.index', [
+        $this->get(route('dashboard.doctors.index', [
             'phone' => '123',
         ]))
             ->assertSuccessful()

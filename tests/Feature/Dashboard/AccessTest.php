@@ -8,13 +8,13 @@ class AccessTest extends TestCase
 {
     public function test_dashboard_authorization()
     {
-        $this->actingAsCustomer();
+        $this->actingAsDoctor();
 
         $response = $this->get(route('dashboard.home'));
 
         $response->assertForbidden();
 
-        $this->actingAsSupervisor();
+        $this->actingAsNurse();
 
         $response = $this->get(route('dashboard.home'));
 

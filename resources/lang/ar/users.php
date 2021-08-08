@@ -8,8 +8,8 @@ return [
     'unverified' => 'غير مفعل',
     'types' => [
         'admin' => 'مسئول',
-        'supervisor' => 'مشرف',
-        'customer' => 'عميل',
+        'nurse' => 'مشرف',
+        'doctor' => 'عميل',
     ],
     'impersonate' => [
         'go' => 'الذهاب للوحة التحكم',

@@ -11,7 +11,7 @@ class AdminRequest extends FormRequest
     use WithHashedPassword;
 
     /**
-     * Determine if the supervisor is authorized to make this request.
+     * Determine if the nurse is authorized to make this request.
      *
      * @return bool
      */

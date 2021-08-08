@@ -3,7 +3,7 @@
 namespace Tests\Feature\Api;
 
 use Tests\TestCase;
-use App\Models\Customer;
+use App\Models\Doctor;
 use App\Models\Verification;
 use App\Events\VerificationCreated;
 use Illuminate\Support\Facades\Event;
@@ -17,7 +17,7 @@ class PhoneVerificationTest extends TestCase
             'password' => 'password',
         ])->assertStatus(401);
 
-        $customer = $this->actingAsCustomer();
+        $doctor = $this->actingAsDoctor();
 
         $this->postJson(route('api.password.check'), [
             'password' => '123456',
@@ -27,17 +27,17 @@ class PhoneVerificationTest extends TestCase
             'password' => 'password',
         ])->assertSuccessful();
 
-        $this->assertEquals($response->json('data.name'), $customer->name);
+        $this->assertEquals($response->json('data.name'), $doctor->name);
     }
 
     /** @test */
     public function it_can_send_or_resend_the_phone_verification_code()
     {
-        $this->actingAsCustomer();
+        $this->actingAsDoctor();
 
         Event::fake();
 
-        Customer::factory(['phone' => '123456789'])->create();
+        Doctor::factory(['phone' => '123456789'])->create();
 
         $this->postJson(route('api.verification.send'), [
             'phone' => '123456',
@@ -49,12 +49,12 @@ class PhoneVerificationTest extends TestCase
     /** @test */
     public function it_can_verify_the_phone_number()
     {
-        $customer = $this->actingAsCustomer();
+        $doctor = $this->actingAsDoctor();
 
         Event::fake();
 
         Verification::create([
-            'user_id' => $customer->id,
+            'user_id' => $doctor->id,
             'phone' => '12345678',
             'code' => 'foobar',
         ]);
@@ -79,7 +79,7 @@ class PhoneVerificationTest extends TestCase
 
         $this->assertEquals(Verification::count(), 0);
 
-        $this->assertNotNull($customer->refresh()->phone_verified_at);
-        $this->assertEquals($customer->phone, '12345678');
+        $this->assertNotNull($doctor->refresh()->phone_verified_at);
+        $this->assertEquals($doctor->phone, '12345678');
     }
 }

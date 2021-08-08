@@ -3,8 +3,8 @@
 namespace Tests;
 
 use App\Models\Admin;
-use App\Models\Customer;
-use App\Models\Supervisor;
+use App\Models\Doctor;
+use App\Models\Nurse;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Database\Seeders\RolesAndPermissionsSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -50,33 +50,33 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Set the currently logged in supervisor for the application.
+     * Set the currently logged in nurse for the application.
      *
      * @param null $driver
-     * @return \App\Models\Supervisor
+     * @return \App\Models\Nurse
      */
-    public function actingAsSupervisor($driver = null)
+    public function actingAsNurse($driver = null)
     {
-        $supervisor = Supervisor::factory()->create();
+        $nurse = Nurse::factory()->create();
 
-        $this->be($supervisor, $driver);
+        $this->be($nurse, $driver);
 
-        return $supervisor;
+        return $nurse;
     }
 
     /**
-     * Set the currently logged in customer for the application.
+     * Set the currently logged in doctor for the application.
      *
      * @param null $driver
-     * @return \App\Models\Customer
+     * @return \App\Models\Doctor
      */
-    public function actingAsCustomer($driver = null)
+    public function actingAsDoctor($driver = null)
     {
-        $customer = Customer::factory()->create();
+        $doctor = Doctor::factory()->create();
 
-        $this->be($customer, $driver);
+        $this->be($doctor, $driver);
 
-        return $customer;
+        return $doctor;
     }
 
     /**

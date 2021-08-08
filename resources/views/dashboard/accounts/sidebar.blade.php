@@ -1,10 +1,10 @@
 @if(Gate::allows('viewAny', \App\Models\User::class)
-    || Gate::allows('viewAny', \App\Models\Supervisor::class)
-    || Gate::allows('viewAny', \App\Models\Customer::class))
+    || Gate::allows('viewAny', \App\Models\Nurse::class)
+    || Gate::allows('viewAny', \App\Models\Doctor::class))
     @component('dashboard::components.sidebarItem')
         @slot('url', '#')
         @slot('name', trans('users.plural'))
-        @slot('active', request()->routeIs('*admins*') || request()->routeIs('*customers*'))
+        @slot('active', request()->routeIs('*admins*') || request()->routeIs('*doctors*'))
         @slot('icon', 'fas fa-users')
         @slot('tree', [
             [
@@ -14,16 +14,16 @@
                 'active' => request()->routeIs('*admins*'),
             ],
             [
-                'name' => trans('supervisors.plural'),
-                'url' => route('dashboard.supervisors.index'),
-                'can' => ['ability' => 'viewAny', 'model' => \App\Models\Supervisor::class],
-                'active' => request()->routeIs('*supervisors*'),
+                'name' => trans('nurses.plural'),
+                'url' => route('dashboard.nurses.index'),
+                'can' => ['ability' => 'viewAny', 'model' => \App\Models\Nurse::class],
+                'active' => request()->routeIs('*nurses*'),
             ],
             [
-                'name' => trans('customers.plural'),
-                'url' => route('dashboard.customers.index'),
-                'can' => ['ability' => 'viewAny', 'model' => \App\Models\Customer::class],
-                'active' => request()->routeIs('*customers*'),
+                'name' => trans('doctors.plural'),
+                'url' => route('dashboard.doctors.index'),
+                'can' => ['ability' => 'viewAny', 'model' => \App\Models\Doctor::class],
+                'active' => request()->routeIs('*doctors*'),
             ],
         ])
     @endcomponent

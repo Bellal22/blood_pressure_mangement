@@ -1,6 +1,6 @@
 [
-    "manage.supervisors",
-    "manage.customers",
+    "manage.nurses",
+    "manage.doctors",
     "manage.feedback",
     "manage.settings"
 ]

@@ -3,7 +3,7 @@
 namespace Tests\Feature\Api;
 
 use Tests\TestCase;
-use App\Models\Customer;
+use App\Models\Doctor;
 use Illuminate\Support\Str;
 use App\Models\ResetPasswordCode;
 use App\Models\ResetPasswordToken;
@@ -28,7 +28,7 @@ class ResetPasswordTest extends TestCase
 
         Notification::assertNothingSent();
 
-        $user = Customer::factory()->create(['email' => 'user@user.com']);
+        $user = Doctor::factory()->create(['email' => 'user@user.com']);
 
         $this->postJson(route('api.password.forget'), [
             'username' => 'user@user.com',
@@ -44,7 +44,7 @@ class ResetPasswordTest extends TestCase
 
     public function test_verification_token_can_be_retrieved()
     {
-        Customer::factory()->create(['email' => 'user@user.com']);
+        Doctor::factory()->create(['email' => 'user@user.com']);
 
         ResetPasswordCode::create([
             'username' => 'user@user.com',
@@ -75,7 +75,7 @@ class ResetPasswordTest extends TestCase
     {
         Notification::fake();
 
-        $user = Customer::factory()->create(['email' => 'user@user.com']);
+        $user = Doctor::factory()->create(['email' => 'user@user.com']);
 
         ResetPasswordToken::create([
             'user_id' => $user->id,

@@ -8,8 +8,8 @@ return [
     'unverified' => 'Unverified',
     'types' => [
         'admin' => 'Admin',
-        'supervisor' => 'Supervisor',
-        'customer' => 'Customer',
+        'nurse' => 'Nurse',
+        'doctor' => 'Doctor',
     ],
     'impersonate' => [
         'go' => 'Go To Dashboard',

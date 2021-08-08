@@ -83,9 +83,9 @@ export default {
             "plural": "الاشعارات",
             "empty": "لا يوجد اشعارات حتى الان",
             "new-feedback": "رسالة جديدة من صفحة اتصل بنا",
-            "new-customer": "قام {user} بإنشاء حساب جديد"
+            "new-doctor": "قام {user} بإنشاء حساب جديد"
         },
-        "supervisors": {
+        "nurses": {
             "plural": "المشرفين",
             "singular": "المشرف",
             "empty": "لا توجد مشرفين",
@@ -203,7 +203,7 @@ export default {
                 }
             }
         },
-        "customers": {
+        "doctors": {
             "plural": "العملاء",
             "singular": "العميل",
             "empty": "لا توجد عملاء",
@@ -481,8 +481,8 @@ export default {
             "unverified": "غير مفعل",
             "types": {
                 "admin": "مسئول",
-                "supervisor": "مشرف",
-                "customer": "عميل"
+                "nurse": "مشرف",
+                "doctor": "عميل"
             },
             "impersonate": {
                 "go": "الذهاب للوحة التحكم",
@@ -665,33 +665,33 @@ export default {
             "plural": "Notifications",
             "empty": "There are no notifications yet.",
             "new-feedback": "New feedback message",
-            "new-customer": "{user} has been create a new account"
+            "new-doctor": "{user} has been create a new account"
         },
-        "supervisors": {
-            "plural": "Supervisors",
-            "singular": "Supervisor",
-            "empty": "There are no supervisors",
-            "select": "Select Supervisor",
-            "permission": "Manage Supervisors",
-            "trashed": "Trashed Supervisors",
+        "nurses": {
+            "plural": "Nurses",
+            "singular": "Nurse",
+            "empty": "There are no nurses",
+            "select": "Select Nurse",
+            "permission": "Manage Nurses",
+            "trashed": "Trashed Nurses",
             "perPage": "Count Results Per Page",
             "actions": {
-                "list": "List Supervisors",
-                "show": "Show Supervisor",
+                "list": "List Nurses",
+                "show": "Show Nurse",
                 "create": "Create",
                 "new": "New",
-                "edit": "Edit Supervisor",
-                "delete": "Delete Supervisor",
+                "edit": "Edit Nurse",
+                "delete": "Delete Nurse",
                 "restore": "Restore",
                 "forceDelete": "Force Delete",
                 "save": "Save",
                 "filter": "Filter"
             },
             "messages": {
-                "created": "The supervisor has been created successfully.",
-                "updated": "The supervisor has been updated successfully.",
-                "deleted": "The supervisor has been deleted successfully.",
-                "restored": "The supervisor has been restored successfully."
+                "created": "The nurse has been created successfully.",
+                "updated": "The nurse has been updated successfully.",
+                "deleted": "The nurse has been deleted successfully.",
+                "restored": "The nurse has been restored successfully."
             },
             "attributes": {
                 "name": "Name",
@@ -707,19 +707,19 @@ export default {
             "dialogs": {
                 "delete": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to delete the supervisor ?",
+                    "info": "Are you sure you want to delete the nurse ?",
                     "confirm": "Delete",
                     "cancel": "Cancel"
                 },
                 "restore": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to restore the supervisor ?",
+                    "info": "Are you sure you want to restore the nurse ?",
                     "confirm": "Restore",
                     "cancel": "Cancel"
                 },
                 "forceDelete": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to force delete the supervisor ?",
+                    "info": "Are you sure you want to force delete the nurse ?",
                     "confirm": "Force",
                     "cancel": "Cancel"
                 }
@@ -785,31 +785,31 @@ export default {
                 }
             }
         },
-        "customers": {
-            "plural": "Customers",
-            "singular": "Customer",
-            "empty": "There are no customers",
-            "select": "Select Customer",
-            "permission": "Manage Customers",
-            "trashed": "Trashed Customers",
+        "doctors": {
+            "plural": "Doctors",
+            "singular": "Doctor",
+            "empty": "There are no doctors",
+            "select": "Select Doctor",
+            "permission": "Manage Doctors",
+            "trashed": "Trashed Doctors",
             "perPage": "Count Results Per Page",
             "actions": {
-                "list": "List Customers",
-                "show": "Show Customer",
+                "list": "List Doctors",
+                "show": "Show Doctor",
                 "create": "Create",
                 "new": "New",
-                "edit": "Edit Customer",
-                "delete": "Delete Customer",
+                "edit": "Edit Doctor",
+                "delete": "Delete Doctor",
                 "restore": "Restore",
                 "forceDelete": "Force Delete",
                 "save": "Save",
                 "filter": "Filter"
             },
             "messages": {
-                "created": "The customer has been created successfully.",
-                "updated": "The customer has been updated successfully.",
-                "deleted": "The customer has been deleted successfully.",
-                "restored": "The customer has been restored successfully."
+                "created": "The doctor has been created successfully.",
+                "updated": "The doctor has been updated successfully.",
+                "deleted": "The doctor has been deleted successfully.",
+                "restored": "The doctor has been restored successfully."
             },
             "attributes": {
                 "name": "Name",
@@ -825,19 +825,19 @@ export default {
             "dialogs": {
                 "delete": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to delete the customer ?",
+                    "info": "Are you sure you want to delete the doctor ?",
                     "confirm": "Delete",
                     "cancel": "Cancel"
                 },
                 "restore": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to restore the customer ?",
+                    "info": "Are you sure you want to restore the doctor ?",
                     "confirm": "Restore",
                     "cancel": "Cancel"
                 },
                 "forceDelete": {
                     "title": "Warning !",
-                    "info": "Are you sure you want to force delete the customer ?",
+                    "info": "Are you sure you want to force delete the doctor ?",
                     "confirm": "Force",
                     "cancel": "Cancel"
                 }
@@ -845,8 +845,8 @@ export default {
         },
         "permissions": {
             "plural": "Permissions",
-            "manage.supervisors": "Manage Supervisors",
-            "manage.customers": "Manage Customers",
+            "manage.nurses": "Manage Nurses",
+            "manage.doctors": "Manage Doctors",
             "manage.feedback": "Manage Feedback",
             "manage.settings": "Manage Settings"
         },
@@ -1067,8 +1067,8 @@ export default {
             "unverified": "Unverified",
             "types": {
                 "admin": "Admin",
-                "supervisor": "Supervisor",
-                "customer": "Customer"
+                "nurse": "Nurse",
+                "doctor": "Doctor"
             },
             "impersonate": {
                 "go": "Go To Dashboard",

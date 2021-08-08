@@ -1,6 +1,6 @@
 {
     "trashed_admin": "App\\Models\\Admin",
-    "trashed_supervisor": "App\\Models\\Supervisor",
-    "trashed_customer": "App\\Models\\Customer",
+    "trashed_nurse": "App\\Models\\Nurse",
+    "trashed_doctor": "App\\Models\\Doctor",
     "trashed_feedback": "App\\Models\\Feedback"
 }

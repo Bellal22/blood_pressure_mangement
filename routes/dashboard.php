@@ -22,19 +22,19 @@ Route::delete('delete', 'DeleteController@destroy')->name('delete.selected');
 Route::delete('forceDelete', 'DeleteController@forceDelete')->name('forceDelete.selected');
 Route::delete('restore', 'DeleteController@restore')->name('restore.selected');
 
-// Customers Routes.
-Route::get('trashed/customers', 'CustomerController@trashed')->name('customers.trashed');
-Route::get('trashed/customers/{trashed_customer}', 'CustomerController@showTrashed')->name('customers.trashed.show');
-Route::post('customers/{trashed_customer}/restore', 'CustomerController@restore')->name('customers.restore');
-Route::delete('customers/{trashed_customer}/forceDelete', 'CustomerController@forceDelete')->name('customers.forceDelete');
-Route::resource('customers', 'CustomerController');
+// Doctors Routes.
+Route::get('trashed/doctors', 'DoctorController@trashed')->name('doctors.trashed');
+Route::get('trashed/doctors/{trashed_doctor}', 'DoctorController@showTrashed')->name('doctors.trashed.show');
+Route::post('doctors/{trashed_doctor}/restore', 'DoctorController@restore')->name('doctors.restore');
+Route::delete('doctors/{trashed_doctor}/forceDelete', 'DoctorController@forceDelete')->name('doctors.forceDelete');
+Route::resource('doctors', 'DoctorController');
 
-// Supervisors Routes.
-Route::get('trashed/supervisors', 'SupervisorController@trashed')->name('supervisors.trashed');
-Route::get('trashed/supervisors/{trashed_supervisor}', 'SupervisorController@showTrashed')->name('supervisors.trashed.show');
-Route::post('supervisors/{trashed_supervisor}/restore', 'SupervisorController@restore')->name('supervisors.restore');
-Route::delete('supervisors/{trashed_supervisor}/forceDelete', 'SupervisorController@forceDelete')->name('supervisors.forceDelete');
-Route::resource('supervisors', 'SupervisorController');
+// Nurses Routes.
+Route::get('trashed/nurses', 'NurseController@trashed')->name('nurses.trashed');
+Route::get('trashed/nurses/{trashed_nurse}', 'NurseController@showTrashed')->name('nurses.trashed.show');
+Route::post('nurses/{trashed_nurse}/restore', 'NurseController@restore')->name('nurses.restore');
+Route::delete('nurses/{trashed_nurse}/forceDelete', 'NurseController@forceDelete')->name('nurses.forceDelete');
+Route::resource('nurses', 'NurseController');
 
 // Admins Routes.
 Route::get('trashed/admins', 'AdminController@trashed')->name('admins.trashed');

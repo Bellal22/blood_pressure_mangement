@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class RegisterTest extends TestCase
 {
-    public function test_customer_register_validation()
+    public function test_doctor_register_validation()
     {
         $this->postJson(route('api.sanctum.register'), [])
             ->assertJsonValidationErrors(['name', 'email', 'phone', 'password']);
@@ -28,7 +28,7 @@ class RegisterTest extends TestCase
             ->assertJsonValidationErrors(['email', 'password', 'avatar']);
     }
 
-    public function test_customer_register()
+    public function test_doctor_register()
     {
         Event::fake();
 

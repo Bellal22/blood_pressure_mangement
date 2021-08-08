@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
-use App\Models\Customer;
+use App\Models\Doctor;
 use App\Models\Verification;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +32,7 @@ class RegisterController extends Controller
         switch ($request->type) {
             case User::CUSTOMER_TYPE:
             default:
-                $user = $this->createCustomer($request);
+                $user = $this->createDoctor($request);
                 break;
         }
 
@@ -54,21 +54,21 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create new customer to register to the application.
+     * Create new doctor to register to the application.
      *
      * @param \App\Http\Requests\Api\RegisterRequest $request
-     * @return \App\Models\Customer
+     * @return \App\Models\Doctor
      */
-    public function createCustomer(RegisterRequest $request)
+    public function createDoctor(RegisterRequest $request)
     {
-        $customer = new Customer();
+        $doctor = new Doctor();
 
-        $customer
+        $doctor
             ->forceFill($request->only('phone', 'type'))
             ->fill($request->allWithHashedPassword())
             ->save();
 
-        return $customer;
+        return $doctor;
     }
 
     /**

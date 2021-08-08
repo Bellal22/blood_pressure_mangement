@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class ForgetPasswordRequest extends FormRequest
 {
     /**
-     * Determine if the supervisor is authorized to make this request.
+     * Determine if the nurse is authorized to make this request.
      *
      * @return bool
      */

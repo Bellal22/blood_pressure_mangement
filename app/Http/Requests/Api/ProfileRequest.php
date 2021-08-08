@@ -12,7 +12,7 @@ class ProfileRequest extends FormRequest
     use WithHashedPassword;
 
     /**
-     * Determine if the supervisor is authorized to make this request.
+     * Determine if the nurse is authorized to make this request.
      *
      * @return bool
      */
@@ -51,7 +51,7 @@ class ProfileRequest extends FormRequest
                 break;
             case User::CUSTOMER_TYPE:
             default:
-                return trans('customers.attributes');
+                return trans('doctors.attributes');
                 break;
         }
     }

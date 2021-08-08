@@ -3,7 +3,7 @@
 namespace Tests\Feature\Dashboard;
 
 use Tests\TestCase;
-use App\Models\Customer;
+use App\Models\Doctor;
 
 class DeleteSelectedTest extends TestCase
 {
@@ -12,18 +12,18 @@ class DeleteSelectedTest extends TestCase
     {
         $this->actingAsAdmin();
 
-        $customers = Customer::factory()->count(10)->create();
+        $doctors = Doctor::factory()->count(10)->create();
 
-        $this->assertEquals(10, $customers->count());
+        $this->assertEquals(10, $doctors->count());
 
         $response = $this->delete(route('dashboard.delete.selected'), [
-            'type' => Customer::class,
-            'resources' => trans('customers.plural'),
-            'items' => $customers->pluck('id')->toArray(),
+            'type' => Doctor::class,
+            'resources' => trans('doctors.plural'),
+            'items' => $doctors->pluck('id')->toArray(),
         ]);
 
         $response->assertRedirect();
 
-        $this->assertEquals(0, Customer::count());
+        $this->assertEquals(0, Doctor::count());
     }
 }

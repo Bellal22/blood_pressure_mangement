@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
-use App\Models\Customer;
-use App\Models\Supervisor;
+use App\Models\Doctor;
+use App\Models\Nurse;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,20 +26,20 @@ class DatabaseSeeder extends Seeder
             'phone' => '111111111',
         ]);
 
-        /** @var Supervisor $supervisor */
-        $supervisor = Supervisor::factory()->createOne([
-            'name' => 'Supervisor',
-            'email' => 'supervisor@demo.com',
+        /** @var Nurse $nurse */
+        $nurse = Nurse::factory()->createOne([
+            'name' => 'Nurse',
+            'email' => 'nurse@demo.com',
             'phone' => '222222222',
         ]);
-        $supervisor->givePermissionTo([
-            'manage.customers',
+        $nurse->givePermissionTo([
+            'manage.doctors',
             'manage.feedback',
         ]);
 
-        $customer = Customer::factory()->createOne([
-            'name' => 'Customer',
-            'email' => 'customer@demo.com',
+        $doctor = Doctor::factory()->createOne([
+            'name' => 'Doctor',
+            'email' => 'doctor@demo.com',
             'phone' => '333333333',
         ]);
 
@@ -50,22 +50,22 @@ class DatabaseSeeder extends Seeder
         $this->command->table(['ID', 'Name', 'Email', 'Phone', 'Password', 'Type', 'Type Code'], [
             [$admin->id, $admin->name, $admin->email, $admin->phone, 'password', 'Admin', $admin->type],
             [
-                $supervisor->id,
-                $supervisor->name,
-                $supervisor->email,
-                $supervisor->phone,
+                $nurse->id,
+                $nurse->name,
+                $nurse->email,
+                $nurse->phone,
                 'password',
-                'Supervisor',
-                $supervisor->type,
+                'Nurse',
+                $nurse->type,
             ],
             [
-                $customer->id,
-                $customer->name,
-                $customer->email,
-                $customer->phone,
+                $doctor->id,
+                $doctor->name,
+                $doctor->email,
+                $doctor->phone,
                 'password',
-                'Customer',
-                $customer->type,
+                'Doctor',
+                $doctor->type,
             ],
         ]);
     }

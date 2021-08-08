@@ -10,7 +10,7 @@ use Spatie\MediaLibrary\HasMedia;
 use App\Support\Traits\Selectable;
 use App\Models\Helpers\UserHelpers;
 use Spatie\Permission\Traits\HasRoles;
-use App\Http\Resources\CustomerResource;
+use App\Http\Resources\DoctorResource;
 use App\Models\Presenters\UserPresenter;
 use Illuminate\Notifications\Notifiable;
 use Laracasts\Presenter\PresentableTrait;
@@ -45,18 +45,18 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
     const ADMIN_TYPE = 'admin';
 
     /**
-     * The code of supervisor type.
+     * The code of nurse type.
      *
      * @var string
      */
-    const SUPERVISOR_TYPE = 'supervisor';
+    const SUPERVISOR_TYPE = 'nurse';
 
     /**
-     * The code of customer type.
+     * The code of doctor type.
      *
      * @var string
      */
-    const CUSTOMER_TYPE = 'customer';
+    const CUSTOMER_TYPE = 'doctor';
 
     /**
      * The guard name of the user permissions.
@@ -100,8 +100,8 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
      */
     protected $childTypes = [
         self::ADMIN_TYPE => Admin::class,
-        self::SUPERVISOR_TYPE => Supervisor::class,
-        self::CUSTOMER_TYPE => Customer::class,
+        self::SUPERVISOR_TYPE => Nurse::class,
+        self::CUSTOMER_TYPE => Doctor::class,
     ];
 
     /**
@@ -148,13 +148,13 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
     }
 
     /**
-     * Get the resource for customer type.
+     * Get the resource for doctor type.
      *
-     * @return \App\Http\Resources\CustomerResource
+     * @return \App\Http\Resources\DoctorResource
      */
     public function getResource()
     {
-        return new CustomerResource($this);
+        return new DoctorResource($this);
     }
 
     /**
@@ -219,7 +219,7 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
      */
     public function canBeImpersonated()
     {
-        return $this->isSupervisor();
+        return $this->isNurse();
     }
 
     /**
@@ -251,8 +251,8 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
      */
     public function getNotificationBody(NotificationModel $notification): string
     {
-        if ($notification->user->isCustomer()) {
-            return trans('notifications.new-customer', [
+        if ($notification->user->isDoctor()) {
+            return trans('notifications.new-doctor', [
                 'user' => $this->name,
             ]);
         }
@@ -300,10 +300,10 @@ class User extends Authenticatable implements HasMedia, NotificationTarget
             return route('dashboard.admins.show', $parameters);
         }
 
-        if ($this->isSupervisor()) {
-            return route('dashboard.supervisors.show', $parameters);
+        if ($this->isNurse()) {
+            return route('dashboard.nurses.show', $parameters);
         }
 
-        return route('dashboard.customers.show', $parameters);
+        return route('dashboard.doctors.show', $parameters);
     }
 }

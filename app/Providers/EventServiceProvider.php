@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Customer;
+use App\Models\Doctor;
 use Illuminate\Auth\Events\Registered;
 use App\Observers\PhoneVerificationObserver;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -36,6 +36,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Customer::observe(PhoneVerificationObserver::class);
+        Doctor::observe(PhoneVerificationObserver::class);
     }
 }

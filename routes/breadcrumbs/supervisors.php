@@ -1,26 +1,26 @@
 <?php
 
-Breadcrumbs::for('dashboard.supervisors.index', function ($breadcrumb) {
+Breadcrumbs::for('dashboard.nurses.index', function ($breadcrumb) {
     $breadcrumb->parent('dashboard.home');
-    $breadcrumb->push(trans('supervisors.plural'), route('dashboard.supervisors.index'));
+    $breadcrumb->push(trans('nurses.plural'), route('dashboard.nurses.index'));
 });
 
-Breadcrumbs::for('dashboard.supervisors.trashed', function ($breadcrumb) {
-    $breadcrumb->parent('dashboard.supervisors.index');
-    $breadcrumb->push(trans('supervisors.trashed'), route('dashboard.supervisors.trashed'));
+Breadcrumbs::for('dashboard.nurses.trashed', function ($breadcrumb) {
+    $breadcrumb->parent('dashboard.nurses.index');
+    $breadcrumb->push(trans('nurses.trashed'), route('dashboard.nurses.trashed'));
 });
 
-Breadcrumbs::for('dashboard.supervisors.create', function ($breadcrumb) {
-    $breadcrumb->parent('dashboard.supervisors.index');
-    $breadcrumb->push(trans('supervisors.actions.create'), route('dashboard.supervisors.create'));
+Breadcrumbs::for('dashboard.nurses.create', function ($breadcrumb) {
+    $breadcrumb->parent('dashboard.nurses.index');
+    $breadcrumb->push(trans('nurses.actions.create'), route('dashboard.nurses.create'));
 });
 
-Breadcrumbs::for('dashboard.supervisors.show', function ($breadcrumb, $supervisor) {
-    $breadcrumb->parent('dashboard.supervisors.index');
-    $breadcrumb->push($supervisor->name, route('dashboard.supervisors.show', $supervisor));
+Breadcrumbs::for('dashboard.nurses.show', function ($breadcrumb, $nurse) {
+    $breadcrumb->parent('dashboard.nurses.index');
+    $breadcrumb->push($nurse->name, route('dashboard.nurses.show', $nurse));
 });
 
-Breadcrumbs::for('dashboard.supervisors.edit', function ($breadcrumb, $supervisor) {
-    $breadcrumb->parent('dashboard.supervisors.show', $supervisor);
-    $breadcrumb->push(trans('supervisors.actions.edit'), route('dashboard.supervisors.edit', $supervisor));
+Breadcrumbs::for('dashboard.nurses.edit', function ($breadcrumb, $nurse) {
+    $breadcrumb->parent('dashboard.nurses.show', $nurse);
+    $breadcrumb->push(trans('nurses.actions.edit'), route('dashboard.nurses.edit', $nurse));
 });

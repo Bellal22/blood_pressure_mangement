@@ -67,7 +67,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Customer
+ * App\Models\Doctor
  *
  * @property int $id
  * @property string $name
@@ -92,32 +92,32 @@ namespace App\Models{
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
- * @method static \Database\Factories\CustomerFactory factory(...$parameters)
+ * @method static \Database\Factories\DoctorFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User filter(?\App\Http\Filters\BaseFilters $filters = null)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Customer newQuery()
- * @method static \Illuminate\Database\Query\Builder|Customer onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Doctor onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor query()
  * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
  * @method static \Illuminate\Database\Eloquent\Builder|User sortingByIds($ids)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereFirebaseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer wherePhoneVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Customer whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Customer withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Customer withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereFirebaseId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor wherePhoneVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Doctor whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Doctor withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Doctor withoutTrashed()
  */
-	class Customer extends \Eloquent {}
+	class Doctor extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -263,7 +263,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Supervisor
+ * App\Models\Nurse
  *
  * @property int $id
  * @property string $name
@@ -288,32 +288,32 @@ namespace App\Models{
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
- * @method static \Database\Factories\SupervisorFactory factory(...$parameters)
+ * @method static \Database\Factories\NurseFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User filter(?\App\Http\Filters\BaseFilters $filters = null)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor newQuery()
- * @method static \Illuminate\Database\Query\Builder|Supervisor onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Nurse onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse query()
  * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
  * @method static \Illuminate\Database\Eloquent\Builder|User sortingByIds($ids)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereFirebaseId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor wherePhoneVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Supervisor whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Supervisor withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Supervisor withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereFirebaseId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse wherePhoneVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nurse whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Nurse withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Nurse withoutTrashed()
  */
-	class Supervisor extends \Eloquent {}
+	class Nurse extends \Eloquent {}
 }
 
 namespace App\Models{

@@ -1,26 +1,26 @@
 <?php
 
-Breadcrumbs::for('dashboard.customers.index', function ($breadcrumb) {
+Breadcrumbs::for('dashboard.doctors.index', function ($breadcrumb) {
     $breadcrumb->parent('dashboard.home');
-    $breadcrumb->push(trans('customers.plural'), route('dashboard.customers.index'));
+    $breadcrumb->push(trans('doctors.plural'), route('dashboard.doctors.index'));
 });
 
-Breadcrumbs::for('dashboard.customers.trashed', function ($breadcrumb) {
-    $breadcrumb->parent('dashboard.customers.index');
-    $breadcrumb->push(trans('customers.trashed'), route('dashboard.customers.trashed'));
+Breadcrumbs::for('dashboard.doctors.trashed', function ($breadcrumb) {
+    $breadcrumb->parent('dashboard.doctors.index');
+    $breadcrumb->push(trans('doctors.trashed'), route('dashboard.doctors.trashed'));
 });
 
-Breadcrumbs::for('dashboard.customers.create', function ($breadcrumb) {
-    $breadcrumb->parent('dashboard.customers.index');
-    $breadcrumb->push(trans('customers.actions.create'), route('dashboard.customers.create'));
+Breadcrumbs::for('dashboard.doctors.create', function ($breadcrumb) {
+    $breadcrumb->parent('dashboard.doctors.index');
+    $breadcrumb->push(trans('doctors.actions.create'), route('dashboard.doctors.create'));
 });
 
-Breadcrumbs::for('dashboard.customers.show', function ($breadcrumb, $customer) {
-    $breadcrumb->parent('dashboard.customers.index');
-    $breadcrumb->push($customer->name, route('dashboard.customers.show', $customer));
+Breadcrumbs::for('dashboard.doctors.show', function ($breadcrumb, $doctor) {
+    $breadcrumb->parent('dashboard.doctors.index');
+    $breadcrumb->push($doctor->name, route('dashboard.doctors.show', $doctor));
 });
 
-Breadcrumbs::for('dashboard.customers.edit', function ($breadcrumb, $customer) {
-    $breadcrumb->parent('dashboard.customers.show', $customer);
-    $breadcrumb->push(trans('customers.actions.edit'), route('dashboard.customers.edit', $customer));
+Breadcrumbs::for('dashboard.doctors.edit', function ($breadcrumb, $doctor) {
+    $breadcrumb->parent('dashboard.doctors.show', $doctor);
+    $breadcrumb->push(trans('doctors.actions.edit'), route('dashboard.doctors.edit', $doctor));
 });
