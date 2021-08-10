@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
+use App\Models\Nurse;
 use App\Models\Doctor;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        Doctor::factory()->count(20)->create();
+        Admin::factory()->count(20)->create();
+        Nurse::factory()->count(50)->create();
+        Doctor::factory()->count(30)->create();
     }
 }
